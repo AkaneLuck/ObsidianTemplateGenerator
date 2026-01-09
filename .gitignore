@@ -1,0 +1,30 @@
+# Stack用
+.stack-work/
+stack.yaml.lock
+
+# Cabal用
+dist/
+dist-newstyle/
+cabal.project.local
+cabal.project.local~
+*.cabal
+
+# GHC
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+.ghc.environment.*
+
+# エディタ/IDE
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 出力ファイル
+*.exe
+*.out
