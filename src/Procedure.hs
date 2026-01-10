@@ -4,30 +4,28 @@
 --
 module Procedure where
 
--- | 手順書ファイル全体を表す
-data Procedure = Procedure
-  { fileName :: String    -- ^ ファイル名
-  , sections :: [Section] -- ^ セクションのリスト
-  }
+import Document
 
--- | セクション
-data Section = Section
-  { sectionName :: String -- ^ セクション名
-  , steps :: [Step]       -- ^ ステップのリスト
-  }
+type Procedure = Document Step
+
+-- 手順書の制約：全てのSectionはsubsectionsが空でなければならない
+validateProcedure :: Procedure -> Bool
+validateProcedure = all hasNoSubsections . sections
+  where
+    hasNoSubsections (Section _ subs _) = null subs
 
 -- | セクションの個別の作業ステップ
 data Step = Step
-  { stepId :: String      -- ^ ステップID
-  , values :: [String]    -- ^ 入力内容（コピペ用）
-  , done :: Bool          -- ^ 実行状況
-  , content :: Content    -- ^ 作業内容
-  , note :: String        -- ^ 補足情報
+  { stepId :: String           -- ^ ステップID
+  , values :: [String]         -- ^ 入力内容（コピペ用）
+  , done :: Bool               -- ^ 実行状況
+  , content :: StepContent     -- ^ 作業内容
+  , note :: String             -- ^ 補足情報
   }
 
 -- | ステップの詳細内容
-data Content = Content
-  { title :: String       -- ^ ステップ名
-  , condition :: String   -- ^ 実行条件
-  , procedure :: String   -- ^ 操作手順
+data StepContent = StepContent
+  { title :: String            -- ^ ステップ名
+  , condition :: String        -- ^ 実行条件
+  , procedure :: String        -- ^ 操作手順
   }
