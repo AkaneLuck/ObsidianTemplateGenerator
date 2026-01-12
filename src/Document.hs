@@ -7,6 +7,7 @@ module Document where
 -- | 文書ファイル全体
 data Document content = Document
   { documentName :: String           -- ^ ファイル名
+  , templateName :: Maybe String     -- ^ テンプレート名
   , dataFlow :: Maybe String         -- - Mermaid図
   , sections :: [Section content]    -- ^ セクションのリスト
   }

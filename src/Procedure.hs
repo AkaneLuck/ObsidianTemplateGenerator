@@ -8,12 +8,6 @@ import Document
 
 type Procedure = Document Step
 
--- 手順書の制約：全てのSectionはsubsectionsが空でなければならない
-validateProcedure :: Procedure -> Bool
-validateProcedure = all hasNoSubsections . sections
-  where
-    hasNoSubsections (Section _ subs _) = null subs
-
 -- | セクションの個別の作業ステップ
 data Step = Step
   { stepId :: String           -- ^ ステップID
