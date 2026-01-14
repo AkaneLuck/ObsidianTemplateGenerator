@@ -15,6 +15,7 @@ data Step = Step
   , done :: Bool               -- ^ 実行状況
   , content :: StepContent     -- ^ 作業内容
   , note :: String             -- ^ 補足情報
+  , artifact :: String         -- ^ 中間生成物
   }
 
 -- | ステップの詳細内容
