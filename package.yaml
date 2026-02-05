@@ -1,0 +1,23 @@
+name: obsidian-template-generator
+version: 0.1.0.0
+github: AkaneLuck/ObsidianTemplateGenerator
+license: MIT
+author: AkaneLuck
+maintainer: your-email@example.com
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  exposed-modules:
+  - Document
+  - Procedure
+  - Design
+
+executables:
+  obsidian-template-generator-exe:
+    main: Main.hs
+    source-dirs: app
+    dependencies:
+    - obsidian-template-generator
