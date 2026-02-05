@@ -21,3 +21,12 @@ executables:
     source-dirs: app
     dependencies:
     - obsidian-template-generator
+
+tests:
+  obsidian-template-generator-test:
+    main: Spec.hs
+    source-dirs: test
+    dependencies:
+    - obsidian-template-generator
+    - hspec
+    - hspec-discover
